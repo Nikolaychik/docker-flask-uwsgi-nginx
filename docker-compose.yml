@@ -2,4 +2,6 @@ version: '2'
 services: # followings are settings for new docker containers.
     web:  #Each container should start with a new line. First word will be it's name
         build: . # Show your docker-compose where to find Dockerfile for this service
-        command: 'python main.py' # What will be done while running this service
+        command: 'uwsgi --socket 0.0.0.0:5000 --protocol=http --wsgi-file wsgi.py' # What will be done while running this service
+        ports: # show which port on your host machine responds which dockers port
+        - '5000:5000'
