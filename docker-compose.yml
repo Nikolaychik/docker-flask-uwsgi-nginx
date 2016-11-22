@@ -1,0 +1,55 @@
+version: '2'
+services: # followings are settings for new docker containers.
+    web:  #Each container should start with a new line. First word will be it's name
+        build: . # Show your docker-compose where to find Dockerfile for this service
+        command: 'python main.py' # What will be done while running this service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#web:
+#  build: .
+#  container_name: web
+#  command:  uwsgi --socket 0.0.0.0:5000 --protocol=http --wsgi-file wsgi.py --pyargv "-c config.ini.dist"
+##  command: #uwsgi --socket 0.0.0.0:8000 --protocol=http --wsgi-file wsgi.py --pyargv "-c config.ini.dist"
+#
+#  env_file: .env
+#
+#  environment:
+#      STATIC_PATH: /static
+#  links:
+#      - redis
+#  expose:
+#    - "5000"
+#  volumes:
+#    - ./server:/app
+#
+#redis:
+#  image: redis
+#
+#nginx:
+#  restart: always
+#  build: ./nginx/
+#  ports:
+#    - "8080:8080"
+#
+#  volumes:
+#    - ../netent-static:/static
+#
+#  volumes_from:
+#    - web
+#  links:
+#    - web:web
